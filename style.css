@@ -1,3 +1,11 @@
+* {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+body{
+    background-color: grey;
+}
+
 .content {
     display: flex;
     height: 70vh;
@@ -13,17 +21,41 @@
     color: red;
 }
 
-body{
-    background-color: grey;
-}
-
-form{
-    padding: 10px;
+.wrapper{
+    padding: 0px;
     background-color: lightgrey;
     border: black solid 2px;
+    width: 40vw;
+}
+
+nav{
+    margin: 0px;
+    background-color: red;
+}
+
+ul{
+    margin: 0px;
+    list-style-type: none;
+}
+
+li{
+    margin-right: 20px;
+    display: inline-block;
+}
+
+li a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
 }
 
 label{
-    font-size: 20px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    display: inline-block;
+    margin: 0px;
+    width: calc(50% - 30px);;
+}
+
+input{
+    margin: 10px 0;
+    width: calc(50% - 10px);
 }
