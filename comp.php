@@ -9,7 +9,9 @@ $nav = <<<EOD
     </nav>
 EOD;
 $end = <<<EOD
-
+    <footer>
+        <h3> © Stijn Dusseldorp - 2021</h3>
+    </footer>
 EOD;
 
 ?>

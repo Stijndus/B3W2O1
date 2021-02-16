@@ -37,6 +37,9 @@ include'comp.php';
                     <label for="quest7">Wat is het ergste dat je kan overkomen?</label>
                     <input type="text" id="quest6" name="quest7">
                 </form>
+                <?php
+                    echo $end;
+                ?>
             </div>
         </section>
     </div>

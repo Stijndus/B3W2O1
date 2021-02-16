@@ -49,6 +49,17 @@ li a {
     color: white;
 }
 
+footer{
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+footer h3{
+    margin: 5px;
+}
+
 label{
     display: inline-block;
     margin: 0px;
