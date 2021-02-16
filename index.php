@@ -4,6 +4,7 @@ include 'comp.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +14,9 @@ include 'comp.php';
 </head>
 <?php
 
-$error =  array("","","","","","","");
+$error = array("", "", "", "", "", "", "", "");
 $validation = false;
-$check = array(false, false, false, false, false, false, false);
+$check = array(false, false, false, false, false, false, false, false);
 $newArr = array();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -28,12 +29,34 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         $counter++;
     }
-    if((count(array_unique($check))==1) and in_array(true, $check,true)==false){
+    if ((count(array_unique($check)) == 1) and in_array(true, $check, true) == false) {
         $validation = true;
-        $story = "<p>Er zijn veel mensen die niet kunnen $input[0]. Neem nou $input[1]. Zelfs met de hulp
-        van een $input[3]  of zelfs $input[2]  kan $input[1]  niet $input[0]. Dat heeft niet te maken met
-        een gebrek aan $input[4], maar met een te veel aan $input[5]. Te veel $input[5]
-        leidt tot $input[6] en dat is niet goed als je wilt $input[0]. Helaas voor $input[1].</p>";
+        $story = "Er heerst paniek in het koninkrijk $input[2], Baas $input[5] is ten einde raad en als baas
+        $input[5] ten einde raad is, dan roept hij zijn ten-einde-Raadspersoon $input[1].
+        <br>
+        <br>
+        '$input[1]! Het is een ramp! Het is een schande!'
+        <br>
+        <br>
+        'Sire, Majesteit, Uwe Luidruchtigheid, wat is er aan de hand?'
+        <br>
+        <br>
+        'Mijn $input[0] is verdwenen! Zo maar, zonder waarschuwing. En ik had nog $input[4] voor hem
+        gekocht!'
+        <br>
+        <br>
+        'Majesteit, uw $input[0] komt vast vanzelf weer terug?'
+        <br>
+        <br>
+        'Ja, da's leuk en aardig, maar hoe moet ik in de tussentijd $input[7] leren?'
+        'Maar Sire, daar kunt u toch uw $input[6] voor gebruiken.'
+        <br>
+        <br>
+        '$input[1], je hebt helemaal gelijk! Wat zou ik doen als ik jou niet had.'
+        <br>
+        <br>
+        '$input[3], Sire.'
+        </p>";
     } else {
         if ($check[0]) {
             $error[0] = "Er is geen geldige invoer gevonden";
@@ -56,6 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($check[6]) {
             $error[6] = "Er is geen geldige invoer gevonden";
         }
+        if ($check[7]) {
+            $error[7] = "Er is geen geldige invoer gevonden";
+        }
     }
 }
 
@@ -68,44 +94,49 @@ function checkdata($data)
 }
 
 ?>
+
 <body>
     <div class="content">
         <section>
-        <h1>Mad Libs</h1>
+            <h1>Mad Libs</h1>
             <div class="wrapper">
                 <?php
-                    echo $nav;
-                    echo $story;
-                ?>
-                <?php if(!$validation){?>
+echo $nav;
+echo $story;
+?>
+                <?php if (!$validation) {?>
                 <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <span class="error"><?php echo $error[0];?></span>       
-                    <label for="quest1">Wat zou je graag willen kunnen?</label>
+                    <h2>Er heerst paniek..</h2>
+                    <span class="error"><?php echo $error[0]; ?></span>
+                    <label for="quest1">Welk dier zou je nooit als huisdier nemen?</label>
                     <input type="text" id="quest1" name="quest[]"><br>
-                    <span class="error"><?php echo $error[1];?></span>
-                    <label for="quest2">Met welke persoon kun je goed opschieten?</label>
+                    <span class="error"><?php echo $error[1]; ?></span>
+                    <label for="quest2">Wie is de belangerijkste persoon in je leven?</label>
                     <input type="text" id="quest2" name="quest[]"><br>
-                    <span class="error"><?php echo $error[2];?></span>
-                    <label for="quest3">Wat is je favoriete getal?</label>
+                    <span class="error"><?php echo $error[2]; ?></span>
+                    <label for="quest3">In welk land zou je graag willen wonen?</label>
                     <input type="text" id="quest3" name="quest[]"><br>
-                    <span class="error"><?php echo $error[3];?></span>
-                    <label for="quest4">Wat heb je altijd bij je als je op vakantie gaat?</label>
+                    <span class="error"><?php echo $error[3]; ?></span>
+                    <label for="quest4">Wat doe je als je je verveelt?</label>
                     <input type="text" id="quest4" name="quest[]"><br>
-                    <span class="error"><?php echo $error[4];?></span>
-                    <label for="quest5">Wat is je beste persoonlijke eigenschap?</label>
+                    <span class="error"><?php echo $error[4]; ?></span>
+                    <label for="quest5">Met welk speelgoed speelde je als kind het meest?</label>
                     <input type="text" id="quest5" name="quest[]"><br>
-                    <span class="error"><?php echo $error[5];?></span>
-                    <label for="quest6">Wat is je slechtste persoonlijke eigenschap?</label>
+                    <span class="error"><?php echo $error[5]; ?></span>
+                    <label for="quest6">Bij welke docent spijbel je het liest?</label>
                     <input type="text" id="quest6" name="quest[]"><br>
-                    <span class="error"><?php echo $error[6];?></span>
-                    <label for="quest7">Wat is het ergste dat je kan overkomen?</label>
+                    <span class="error"><?php echo $error[6]; ?></span>
+                    <label for="quest7">Als je €100.000,- had, wat zou je dan kopen?</label>
                     <input type="text" id="quest7" name="quest[]">
+                    <span class="error"><?php echo $error[7]; ?></span>
+                    <label for="quest8">Wat is je favoriete bezigheid?</label>
+                    <input type="text" id="quest8" name="quest[]">
                     <input type="submit" id="submit" value="Submit">
                 </form>
                 <?php }?>
                 <?php
-                    echo $end;
-                ?>
+echo $end;
+?>
             </div>
         </section>
     </div>
